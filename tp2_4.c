@@ -26,6 +26,9 @@ int main(){
         compus[i].tipo_cpu=tipos[numA];
     }
     listaPC(compus);
+    pcVieja(compus);
+    pcMasterRaise(compus);
+
     return 0;
 }
 void listaPC(compu* compus){
@@ -42,8 +45,32 @@ void listaPC(compu* compus){
 
 };
 void pcVieja(compu* compus){
+    int indicePcVieja = 0;
+    for (int i = 0; i < 5; i++)
+    {
+        if(compus[i].anio < compus[indicePcVieja].anio){
+            indicePcVieja = i;
+        }
+    }
+    printf("La PC más vieja es la número %d:\n", indicePcVieja + 1);
+    printf("Año: %d\n", compus[indicePcVieja].anio);
+    printf("Velocidad: %d GHz\n", compus[indicePcVieja].velocidad);
+    printf("Cantidad: %d\n", compus[indicePcVieja].cantidad);
+    printf("Tipo de CPU: %s\n", compus[indicePcVieja].tipo_cpu);
+    
 
 };
 void pcMasterRaise(compu* compus){
-
+ int indicePcMaster = 0;
+    for (int i = 0; i < 5; i++)
+    {
+        if(compus[i].velocidad > compus[indicePcMaster].velocidad){
+            indicePcMaster = i;
+        }
+    }
+    printf("La PC más rapida es la número %d:\n", indicePcMaster + 1);
+    printf("Año: %d\n", compus[indicePcMaster].anio);
+    printf("Velocidad: %d GHz\n", compus[indicePcMaster].velocidad);
+    printf("Cantidad: %d\n", compus[indicePcMaster].cantidad);
+    printf("Tipo de CPU: %s\n", compus[indicePcMaster].tipo_cpu);
 };
